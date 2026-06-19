@@ -27,7 +27,10 @@ import {
   Linkedin,
   Facebook,
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  Instagram,
+  Send,
+  MessageCircle
 } from 'lucide-react';
 
 interface LucideIconProps {
@@ -67,7 +70,10 @@ export default function LucideIcon({ name, className = '', size }: LucideIconPro
     Linkedin,
     Facebook,
     ExternalLink,
-    MessageSquare
+    MessageSquare,
+    Instagram,
+    Send,
+    MessageCircle
   };
 
   const Component = iconMap[name];

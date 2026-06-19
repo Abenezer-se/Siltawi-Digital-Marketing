@@ -56,22 +56,51 @@ export default function Footer({ onNavigate }: FooterProps) {
             </p>
 
             {/* Social Icons list */}
-            <div className="flex items-center gap-2.5 pt-2">
+            <div className="flex items-wrap gap-2.5 pt-2">
               <a
-                href="#facebook"
-                onClick={(e) => e.preventDefault()}
+                href="https://t.me/siltawi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_8px_#D1008F] transition-all duration-300"
+                aria-label="Siltawi on Telegram"
+              >
+                <LucideIcon name="Send" size={15} />
+              </a>
+              <a
+                href="https://facebook.com/siltawi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_8px_#D1008F] transition-all duration-300"
                 aria-label="Siltawi on Facebook"
               >
                 <LucideIcon name="Facebook" size={15} />
               </a>
               <a
-                href="#linkedin"
-                onClick={(e) => e.preventDefault()}
+                href="https://instagram.com/siltawi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_8px_#D1008F] transition-all duration-300"
+                aria-label="Siltawi on Instagram"
+              >
+                <LucideIcon name="Instagram" size={15} />
+              </a>
+              <a
+                href="https://linkedin.com/company/siltawi"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_8px_#D1008F] transition-all duration-300"
                 aria-label="Siltawi on LinkedIn"
               >
                 <LucideIcon name="Linkedin" size={15} />
+              </a>
+              <a
+                href="https://wa.me/251900000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_8px_#D1008F] transition-all duration-300"
+                aria-label="Siltawi on WhatsApp"
+              >
+                <LucideIcon name="MessageCircle" size={15} />
               </a>
             </div>
           </div>

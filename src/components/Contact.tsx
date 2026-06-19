@@ -122,6 +122,58 @@ export default function Contact() {
                     </p>
                   </div>
                 </div>
+
+                {/* Social media connections directly inside Contact Column */}
+                <div className="pt-5 border-t border-white/[0.06] space-y-3">
+                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Connect Online</p>
+                  <div className="flex items-center gap-2.5">
+                    <a
+                      href="https://t.me/siltawi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_10px_#D1008F] transition-all duration-300"
+                      title="Telegram"
+                    >
+                      <LucideIcon name="Send" size={16} />
+                    </a>
+                    <a
+                      href="https://facebook.com/siltawi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_10px_#D1008F] transition-all duration-300"
+                      title="Facebook"
+                    >
+                      <LucideIcon name="Facebook" size={16} />
+                    </a>
+                    <a
+                      href="https://instagram.com/siltawi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_10px_#D1008F] transition-all duration-300"
+                      title="Instagram"
+                    >
+                      <LucideIcon name="Instagram" size={16} />
+                    </a>
+                    <a
+                      href="https://linkedin.com/company/siltawi"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_10px_#D1008F] transition-all duration-300"
+                      title="LinkedIn"
+                    >
+                      <LucideIcon name="Linkedin" size={16} />
+                    </a>
+                    <a
+                      href="https://wa.me/251900000000"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-center text-slate-400 hover:text-white hover:bg-[#D1008F] hover:shadow-[0_0_10px_#D1008F] transition-all duration-300"
+                      title="WhatsApp"
+                    >
+                      <LucideIcon name="MessageCircle" size={16} />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 

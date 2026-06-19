@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import LucideIcon from './LucideIcon';
+import AddisAbabaClock from './AddisAbabaClock';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -166,9 +167,13 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Footer Sub bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-10 text-xs text-slate-500 space-y-4 sm:space-y-0">
-          <div>
+          <div className="space-y-2 text-center sm:text-left">
             <p>© {currentYear} Siltawi Digital Marketing. All rights reserved.</p>
-            <p className="mt-1 text-[10px] text-slate-600">Addis Ababa, Ethiopia. Powered by premium analytics engineering.</p>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+              <p className="text-[10px] text-slate-600">Addis Ababa, Ethiopia. Powered by premium analytics engineering.</p>
+              <div className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-800" />
+              <AddisAbabaClock compact={true} />
+            </div>
           </div>
           
           <button

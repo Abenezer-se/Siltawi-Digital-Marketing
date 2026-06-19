@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import LucideIcon from './LucideIcon';
+import AddisAbabaClock from './AddisAbabaClock';
 
 interface NavbarProps {
   activeSection: string;
@@ -103,6 +104,10 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
               );
             })}
             
+            <div className="ml-4 pl-4 border-l border-white/10 hidden xl:flex items-center">
+              <AddisAbabaClock />
+            </div>
+            
             {/* Gradient button with neon glow */}
             <button
               onClick={() => handleItemClick('contact')}
@@ -161,13 +166,16 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
                     </button>
                   );
                 })}
-                <div className="pt-6 px-4">
+                <div className="pt-6 px-4 space-y-4">
                   <button
                     onClick={() => handleItemClick('contact')}
                     className="w-full py-3.5 bg-gradient-to-r from-[#D1008F] to-[#F02AA6] text-white font-bold text-center text-xs uppercase tracking-widest rounded-xl shadow-[0_0_15px_rgba(209,0,143,0.3)]"
                   >
                     Get Connected
                   </button>
+                  <div className="flex justify-center pt-2">
+                    <AddisAbabaClock compact={true} />
+                  </div>
                 </div>
               </div>
             </motion.div>

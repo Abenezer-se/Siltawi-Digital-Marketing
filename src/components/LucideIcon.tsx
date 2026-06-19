@@ -31,7 +31,12 @@ import {
   Instagram,
   Send,
   MessageCircle,
-  Clock
+  Clock,
+  ChevronDown,
+  Plus,
+  Minus,
+  HelpCircle,
+  Globe
 } from 'lucide-react';
 
 interface LucideIconProps {
@@ -75,7 +80,12 @@ export default function LucideIcon({ name, className = '', size }: LucideIconPro
     Instagram,
     Send,
     MessageCircle,
-    Clock
+    Clock,
+    ChevronDown,
+    Plus,
+    Minus,
+    HelpCircle,
+    Globe
   };
 
   const Component = iconMap[name];

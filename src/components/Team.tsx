@@ -1,8 +1,20 @@
 import { motion } from 'motion/react';
 import { TEAM } from '../data';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Team() {
+  const { language, t } = useLanguage();
+
+  const getTranslatedCategory = (cat: string) => {
+    if (cat === 'Digital Marketing') return t('service.digital-marketing.title');
+    if (cat === 'Website Development') return t('service.website-development.title');
+    if (cat === 'Branding & Design') return t('service.branding-design.title');
+    if (cat === 'Content Creation') return t('service.content-creation.title');
+    if (cat === 'SEO Services') return t('service.seo-services.title');
+    return cat;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,13 +43,13 @@ export default function Team() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] font-black text-[#FFA52F] tracking-widest uppercase font-display bg-[#FFA52F]/15 border border-[#FFA52F]/35 px-4 py-2 rounded-full inline-block">
-            Our Organization
+            {t('team.pretitle')}
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-            Meet the Experts of Siltawi
+            {t('team.title')}
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Meet our multi-disciplinary talent divisions based in Addis Ababa, driving branding excellence and tech delivery.
+            {t('team.subtitle')}
           </p>
         </div>
 
@@ -67,7 +79,7 @@ export default function Team() {
                 
                 {/* Division tag */}
                 <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[9px] uppercase font-black tracking-widest font-display border border-white/[0.08]">
-                  {member.role === 'Founder & Visionary Leader' ? 'Founder' : 'Specialist Crew'}
+                  {member.role === 'Founder & Visionary Leader' ? (language === 'am' ? 'መስራች' : 'Founder') : (language === 'am' ? 'ባለሙያ' : 'Specialist Crew')}
                 </div>
               </div>
 
@@ -78,18 +90,18 @@ export default function Team() {
                     {member.name}
                   </h3>
                   <p className="text-xs font-bold text-[#FFA52F] uppercase tracking-wider">
-                    {member.role}
+                    {t(`team.${member.id}.role`)}
                   </p>
                 </div>
 
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light">
-                  {member.description} We construct unique paths for businesses, ensuring we deliver creative and modern designs coupled with robust analytics execution.
+                  {t(`team.${member.id}.description`)}{language === 'am' ? ' ለአገር ውስጥና ለዓለም አቀፍ ንግዶች እድገት ምቹ የሆኑ ዲጂታል ስልቶች እንዘረጋለን።' : " We construct unique paths for businesses, ensuring we deliver creative and modern designs coupled with robust analytics execution."}
                 </p>
 
                 {/* Social links simulation */}
                 <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between">
                   <span className="text-[9px] text-slate-500 font-bold uppercase tracking-widest">
-                    Division: {member.category}
+                    {language === 'am' ? 'ክፍል' : 'Division'}: {getTranslatedCategory(member.category)}
                   </span>
                   <div className="flex items-center gap-2">
                     <a

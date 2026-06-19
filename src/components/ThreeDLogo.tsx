@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 interface MousePosition {
   x: number;
@@ -8,6 +9,7 @@ interface MousePosition {
 }
 
 export default function ThreeDLogo() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState<MousePosition>({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -219,7 +221,7 @@ export default function ThreeDLogo() {
       <div className="absolute inset-x-0 bottom-4 text-center">
         <p className="text-[10px] font-black uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#D1008F] to-[#FFA52F] font-display flex items-center justify-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F5D400] animate-ping" />
-          Drag or move mouse to swivel 3D Core
+          {t('hero.dragText')}
         </p>
       </div>
     </div>

@@ -4,12 +4,15 @@ import StatisticCounter from './StatisticCounter';
 import LucideIcon from './LucideIcon';
 import FloatingShapes from './FloatingShapes';
 import ThreeDLogo from './ThreeDLogo';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
+  const { language, t } = useLanguage();
+
   return (
     <section
       id="home"
@@ -30,7 +33,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             >
               <span className="flex h-2 w-2 rounded-full bg-[#F02AA6] animate-pulse shadow-[0_0_8px_#F02AA6]" />
               <span className="text-[10px] font-black text-white tracking-widest uppercase font-display">
-                Next-Gen Creative Agency • Addis Ababa
+                {language === 'am' ? 'ቀጣይ ትውልድ የፈጠራ ኤጀንሲ • አዲስ አበባ' : 'Next-Gen Creative Agency • Addis Ababa'}
               </span>
             </motion.div>
 
@@ -40,20 +43,39 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display font-black text-4xl sm:text-5xl lg:text-6.5xl text-white tracking-tight leading-[1.05]"
             >
-              Elevating Brands <br className="hidden sm:inline" />
-              Through{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D1008F] via-[#F02AA6] to-[#FFA52F] drop-shadow-[0_2px_15px_rgba(209,0,143,0.35)]">
-                Futuristic Design
-              </span>
+              {language === 'am' ? (
+                <>
+                  የምርት ስሞችን <br className="hidden sm:inline" /> በ
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D1008F] via-[#F02AA6] to-[#FFA52F] drop-shadow-[0_2px_15px_rgba(209,0,143,0.35)] pl-1">
+                    ወደፊት በሚያይ ዲዛይን
+                  </span> ማሳደግ
+                </>
+              ) : (
+                <>
+                  Elevating Brands <br className="hidden sm:inline" />
+                  Through{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D1008F] via-[#F02AA6] to-[#FFA52F] drop-shadow-[0_2px_15px_rgba(209,0,143,0.35)]">
+                    Futuristic Design
+                  </span>
+                </>
+              )}
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg text-slate-300 max-w-2xl font-light leading-relaxed"
+              className="text-base sm:text-lg text-slate-300 max-w-2xl font-light leading-relaxed font-sans"
             >
-              Born in Addis Ababa, Ethiopia, <strong className="text-white font-medium">Siltawi Digital Marketing</strong> is a premium enterprise-grade agency. We craft award-winning experiences through luxury branding, high-conversion web development, immersive social marketing, and intelligent search engine optimization.
+              {language === 'am' ? (
+                <>
+                  በአዲስ አበባ ኢትዮጵያ ውስጥ የተመሰረተው <strong className="text-white font-medium">ስልጣዊ ዲጂታል ማርኬቲንግ</strong> የላቀ የድርጅት ደረጃ ኤጀንሲ ነው። በዓይን የሚስብ ብራንዲንግ፣ ከፍተኛ ውጤት ባለው የዌብሳይት ልማት፣ ማራኪ የማህበራዊ ሚዲያ ግብይት እና ብልጥ የፍለጋ ሞተር ማጎልበት (SEO) አማካኝነት ስኬታማ ተሞክሮዎችን እንፈጥራለን።
+                </>
+              ) : (
+                <>
+                  Born in Addis Ababa, Ethiopia, <strong className="text-white font-medium">Siltawi Digital Marketing</strong> is a premium enterprise-grade agency. We craft award-winning experiences through luxury branding, high-conversion web development, immersive social marketing, and intelligent search engine optimization.
+                </>
+              )}
             </motion.p>
 
             <motion.div
@@ -67,7 +89,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 onClick={() => onNavigate('contact')}
                 className="px-8 py-4 w-full sm:w-auto bg-gradient-to-r from-[#D1008F] to-[#F02AA6] hover:from-[#F02AA6] hover:to-[#FFA52F] text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(209,0,143,0.4)] hover:shadow-[0_0_30px_rgba(255,165,47,0.6)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group cursor-pointer focus:outline-none"
               >
-                Launch Your Project
+                {language === 'am' ? 'ፕሮጀክትዎን ይጀምሩ' : 'Launch Your Project'}
                 <LucideIcon
                   name="ArrowRight"
                   className="w-4 h-4 transition-transform group-hover:translate-x-1"
@@ -79,7 +101,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 onClick={() => onNavigate('portfolio')}
                 className="px-8 py-4 w-full sm:w-auto bg-transparent text-white font-bold text-sm uppercase tracking-wider rounded-xl border border-white/10 hover:border-[#D1008F] hover:bg-[#D1008F]/5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
               >
-                View Selected Works
+                {language === 'am' ? 'ስራዎቻችንን ይመልከቱ' : 'View Selected Works'}
               </button>
             </motion.div>
           </div>
@@ -112,7 +134,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               </span>
               
               <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-1">
-                {stat.label}
+                {t(stat.id)}
               </span>
             </div>
           ))}

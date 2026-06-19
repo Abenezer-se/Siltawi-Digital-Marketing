@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES } from '../data';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState(SERVICES[0].id);
 
   const activeService = SERVICES.find((service) => service.id === activeTab) || SERVICES[0];
@@ -17,13 +19,13 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] font-black text-[#FFA52F] tracking-widest uppercase font-display bg-[#FFA52F]/10 border border-[#FFA52F]/35 px-4 py-2 rounded-full inline-block">
-            Our Offerings
+            {t('services.pretitle')}
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-            High-Impact Multi-Channel Solutions
+            {t('services.title')}
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            We deliver engineered, customized digital services designed to align directly with client objectives and expand market share.
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -32,6 +34,7 @@ export default function Services() {
           <div className="flex gap-2 w-full justify-between">
             {SERVICES.map((srv) => {
               const isActive = activeTab === srv.id;
+              const serviceTitleKey = `service.${srv.id}.title`;
               return (
                 <button
                   key={srv.id}
@@ -47,7 +50,7 @@ export default function Services() {
                   }`}>
                     <LucideIcon name={srv.iconName} size={20} />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-wider">{srv.title}</span>
+                  <span className="text-xs font-black uppercase tracking-wider">{t(serviceTitleKey)}</span>
                 </button>
               );
             })}
@@ -76,22 +79,22 @@ export default function Services() {
                   </div>
                   <div>
                     <h3 className="font-display font-black text-2xl text-white leading-tight uppercase tracking-wide">
-                      {activeService.title}
+                      {t(`service.${activeService.id}.title`)}
                     </h3>
                     <p className="text-[9px] font-black text-[#FFA52F] uppercase tracking-widest font-display mt-0.5">
-                      Expert Division
+                      {t('services.division')}
                     </p>
                   </div>
                 </div>
 
                 <p className="text-slate-300 text-sm leading-relaxed font-light">
-                  {activeService.description}
+                  {t(`service.${activeService.id}.description`)}
                 </p>
 
                 {/* Sub Bullet Details */}
                 <div className="border-t border-white/[0.08] pt-6 space-y-4">
                   <h4 className="font-display font-black text-white text-xs uppercase tracking-wider">
-                    Services Included:
+                    {t('services.included')}
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-3.5">
                     {activeService.bullets.map((bullet, idx) => (
@@ -99,7 +102,9 @@ export default function Services() {
                         <div className="w-5 h-5 rounded-full bg-[#F02AA6]/10 border border-[#F02AA6]/25 text-[#FF7BC1] flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_8px_rgba(240,42,166,0.15)]">
                           <LucideIcon name="Check" size={10} className="stroke-[3]" />
                         </div>
-                        <span className="text-xs sm:text-sm font-semibold text-slate-300 leading-tight">{bullet}</span>
+                        <span className="text-xs sm:text-sm font-semibold text-slate-300 leading-tight">
+                          {t(`service.${activeService.id}.bullet.${idx}`)}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -112,6 +117,7 @@ export default function Services() {
           <div className="lg:col-span-5 flex flex-col gap-3 justify-center">
             {SERVICES.map((srv) => {
               const isActive = activeTab === srv.id;
+              const serviceTitleKey = `service.${srv.id}.title`;
               return (
                 <button
                   key={srv.id}
@@ -129,9 +135,9 @@ export default function Services() {
                       <LucideIcon name={srv.iconName} size={18} />
                     </div>
                     <div>
-                      <h4 className="font-display font-black text-xs sm:text-sm tracking-wide uppercase">{srv.title}</h4>
+                      <h4 className="font-display font-black text-xs sm:text-sm tracking-wide uppercase">{t(serviceTitleKey)}</h4>
                       <p className={`text-[9px] uppercase tracking-wider mt-0.5 font-bold ${isActive ? 'text-[#FF7BC1]' : 'text-slate-500'}`}>
-                        {srv.bullets.length} Capabilities
+                        {srv.bullets.length} {t('services.capabilities')}
                       </p>
                     </div>
                   </div>

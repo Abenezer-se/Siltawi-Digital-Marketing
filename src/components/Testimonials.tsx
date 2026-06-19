@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TESTIMONIALS } from '../data';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for prev, 1 for next
 
@@ -53,13 +55,13 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] font-black text-[#FF7BC1] tracking-widest uppercase font-display bg-[#D1008F]/15 border border-[#D1008F]/35 px-4 py-2 rounded-full inline-block">
-            Success Stories
+            {t('testimonials.pretitle')}
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-            Loved by Fast-Growing Brands
+            {t('testimonials.title')}
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Read directly how our customized web builds, targeted advertising, and localized SEO conversions deliver remarkable growth.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -82,7 +84,7 @@ export default function Testimonials() {
 
               {/* Quote text */}
               <blockquote className="font-display font-semibold text-lg sm:text-xl md:text-2xl text-white leading-normal tracking-tight px-2 sm:px-6">
-                "{activeTestimonial.quote}"
+                "{t(`testimonial.${activeTestimonial.id}.quote`)}"
               </blockquote>
 
               {/* Star Rating */}
@@ -105,7 +107,7 @@ export default function Testimonials() {
                     {activeTestimonial.author}
                   </h4>
                   <p className="text-xs text-slate-400 font-semibold tracking-wide">
-                    {activeTestimonial.role} — <span className="text-[#FF7BC1] font-bold">{activeTestimonial.company}</span>
+                    {t(`testimonial.${activeTestimonial.id}.role`)} — <span className="text-[#FF7BC1] font-bold">{activeTestimonial.company}</span>
                   </p>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -14,7 +15,7 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'services', 'portfolio', 'team', 'testimonials', 'contact'];
+      const sections = ['home', 'about', 'services', 'portfolio', 'team', 'testimonials', 'faq', 'contact'];
       const scrollPosition = window.scrollY + 200; // Offset for navbar height and visual triggers
 
       for (const sectionId of sections) {
@@ -118,6 +119,9 @@ export default function App() {
 
         {/* Testimonials Quote Carousel slider */}
         <Testimonials />
+
+        {/* FAQ Academy & Support Accordion Section */}
+        <FAQ />
 
         {/* Contact info form & Google map section */}
         <Contact />

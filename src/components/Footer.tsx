@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import LucideIcon from './LucideIcon';
 import AddisAbabaClock from './AddisAbabaClock';
+import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -8,6 +9,7 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const { language, t } = useLanguage();
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -16,6 +18,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     { id: 'portfolio', label: 'Portfolio' },
     { id: 'team', label: 'Our Team' },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -53,7 +56,9 @@ export default function Footer({ onNavigate }: FooterProps) {
             </button>
             
             <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-              Based in Addis Ababa, Ethiopia, Siltawi is a digital marketing and creative agency helping startups and established projects drive customer conversion with innovative design and SEO architecture.
+              {language === 'am' 
+                ? 'አዲስ አበባ ኢትዮጵያ ውስጥ የተመሰረተው ስልጣዊ የዲጂታል ማርኬቲንግ እና የፈጠራ ስራዎች ኤጀንሲ ነው። ደንበኞችን የሚስቡ ዘመናዊ ዲዛይኖችን፣ ፈጣን ዌብሳይቶችን እና የፍለጋ ሞተር ማጎልበት (SEO) ስራዎችን እንሰራለን።' 
+                : 'Based in Addis Ababa, Ethiopia, Siltawi is a digital marketing and creative agency helping startups and established projects drive customer conversion with innovative design and SEO architecture.'}
             </p>
 
             {/* Social Icons list */}
@@ -109,30 +114,30 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Column 2 - Core Services Links */}
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h4 className="font-display font-black text-[#FFA52F] text-xs uppercase tracking-widest">
-              Our Capabilities
+              {language === 'am' ? 'አገልግሎቶቻችን' : 'Our Capabilities'}
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-left focus:outline-none">Digital Advertising</button></li>
-              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">Website Development</button></li>
-              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">Branding & Identity</button></li>
-              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">Content & Photography</button></li>
-              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">Search Optimization</button></li>
+              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-left focus:outline-none">{t('service.digital-marketing.title')}</button></li>
+              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">{t('service.website-development.title')}</button></li>
+              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">{t('service.branding-design.title')}</button></li>
+              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">{t('service.content-creation.title')}</button></li>
+              <li><button onClick={() => onNavigate('services')} className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none">{t('service.seo-services.title')}</button></li>
             </ul>
           </div>
 
           {/* Column 3 - Navigation links */}
           <div className="lg:col-span-3 flex flex-col space-y-4">
             <h4 className="font-display font-black text-[#FFA52F] text-xs uppercase tracking-widest">
-              Sitemap Navigation
+              {language === 'am' ? 'የድረ-ገጽ ካርታ' : 'Sitemap Navigation'}
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => onNavigate(link.id)}
-                    className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none"
+                    className="hover:text-white transition-colors text-slate-400 text-left focus:outline-none cursor-pointer"
                   >
-                    {link.label}
+                    {t('nav.' + link.id)}
                   </button>
                 </li>
               ))}
@@ -142,11 +147,11 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Column 4 - Direct Contact details */}
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <h4 className="font-display font-black text-[#FFA52F] text-xs uppercase tracking-widest">
-              Our Office
+              {language === 'am' ? 'ቢሯችን' : 'Our Office'}
             </h4>
             <div className="space-y-3 text-xs sm:text-sm text-slate-400">
               <p className="leading-relaxed">
-                Addis Ababa, <br className="hidden md:inline" /> Ethiopia
+                {language === 'am' ? 'አዲስ አበባ፣ ኢትዮጵያ' : 'Addis Ababa, Ethiopia'}
               </p>
               <div className="space-y-1">
                 <p>
@@ -168,9 +173,13 @@ export default function Footer({ onNavigate }: FooterProps) {
         {/* Footer Sub bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-10 text-xs text-slate-500 space-y-4 sm:space-y-0">
           <div className="space-y-2 text-center sm:text-left">
-            <p>© {currentYear} Siltawi Digital Marketing. All rights reserved.</p>
+            <p>© {currentYear} Siltawi Digital Marketing. {language === 'am' ? 'መብቱ በህግ የተጠበቀ ነው።' : 'All rights reserved.'}</p>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3">
-              <p className="text-[10px] text-slate-600">Addis Ababa, Ethiopia. Powered by premium analytics engineering.</p>
+              <p className="text-[10px] text-slate-600">
+                {language === 'am' 
+                  ? 'አዲስ አበባ፣ ኢትዮጵያ። በዘመናዊ የዲጂታል ማርኬቲንግ እና የፈጠራ ስራዎች የተገነባ።' 
+                  : 'Addis Ababa, Ethiopia. Powered by premium analytics engineering.'}
+              </p>
               <div className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-800" />
               <AddisAbabaClock compact={true} />
             </div>
@@ -181,7 +190,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             className="px-4 py-2 bg-white/[0.02] border border-white/[0.05] rounded-lg hover:bg-white/[0.1] hover:text-white text-slate-400 transition-all flex items-center gap-1.5 focus:outline-none cursor-pointer"
             aria-label="Scroll back to top"
           >
-            Back to Top
+            {language === 'am' ? 'ወደ ላይ ይመለሱ' : 'Back to Top'}
             <LucideIcon name="ChevronRight" size={12} className="-rotate-90" />
           </button>
         </div>

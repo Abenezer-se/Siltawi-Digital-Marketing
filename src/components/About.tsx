@@ -1,8 +1,11 @@
 import { motion } from 'motion/react';
 import { CORE_VALUES } from '../data';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+
   const targetClients = [
     'Small Businesses',
     'Startups',
@@ -44,13 +47,13 @@ export default function About() {
         {/* Title Group */}
         <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
           <span className="text-[10px] font-black text-[#FF7BC1] tracking-widest uppercase font-display bg-[#D1008F]/10 border border-[#D1008F]/30 px-4 py-2 rounded-full inline-block">
-            About Our Agency
+            {t('about.pretitle')}
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-            Empowering the Next Generation of African Enterprise
+            {t('about.maintitle')}
           </h2>
           <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-            Founded in 2023 in the heart of Addis Ababa, <strong className="text-white font-medium">Siltawi Digital Marketing</strong> was built on the core belief that businesses thrive when armed with exceptional digital assets and analytical marketing. Today, we deliver holistic, world-class branding, tech engineering, and SEO strategies.
+            {t('about.description')}
           </p>
         </div>
 
@@ -61,9 +64,9 @@ export default function About() {
             <div className="w-12 h-12 bg-[#D1008F]/10 rounded-xl flex items-center justify-center text-[#FF7BC1] mb-6 border border-[#D1008F]/25">
               <LucideIcon name="Crown" size={24} />
             </div>
-            <h3 className="font-display font-black text-2xl text-white mb-3 tracking-tight">Our Mission</h3>
+            <h3 className="font-display font-black text-2xl text-white mb-3 tracking-tight">{t('about.missionTitle')}</h3>
             <p className="text-slate-300 font-light leading-relaxed text-sm">
-              To empower businesses with innovative digital marketing solutions that drive growth, enhance brand visibility, and create meaningful customer connections. We bridge creative storytelling with robust data reporting to produce exceptional ROI.
+              {t('about.missionDesc')}
             </p>
           </div>
 
@@ -72,9 +75,9 @@ export default function About() {
             <div className="w-12 h-12 bg-[#FFA52F]/10 rounded-xl flex items-center justify-center text-[#FFA52F] mb-6 border border-[#FFA52F]/25">
               <LucideIcon name="Lightbulb" size={24} />
             </div>
-            <h3 className="font-display font-black text-2xl text-white mb-3 tracking-tight">Our Vision</h3>
+            <h3 className="font-display font-black text-2xl text-white mb-3 tracking-tight">{t('about.visionTitle')}</h3>
             <p className="text-slate-300 font-light leading-relaxed text-sm">
-              To become one of Africa's leading digital marketing agencies by delivering highly creative, data-driven, and results-oriented digital solutions. We strive to be the standard of design craftsmanship and local business growth.
+              {t('about.visionDesc')}
             </p>
           </div>
         </div>
@@ -83,22 +86,25 @@ export default function About() {
         <div className="mb-24 py-10 px-8 rounded-2xl glass-panel-heavy border border-white/[0.08]">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1">
-              <h4 className="font-display font-black text-[#FFA52F] text-xs uppercase tracking-widest mb-2.5">Our Target Industries</h4>
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">Whom We Serve</h3>
+              <h4 className="font-display font-black text-[#FFA52F] text-xs uppercase tracking-widest mb-2.5">{t('about.targetPretitle')}</h4>
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">{t('about.targetTitle')}</h3>
               <p className="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
-                From micro-cafes to educational establishments, our bespoke structures deliver high visibility, organic engagement, and conversion optimization.
+                {t('about.targetDesc')}
               </p>
             </div>
             <div className="lg:col-span-2 flex flex-wrap gap-2.5">
-              {targetClients.map((client, idx) => (
-                <span
-                  key={idx}
-                  className="px-4 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#D1008F]/50 hover:bg-[#D1008F]/5 text-slate-300 hover:text-[#FF7BC1] text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-default"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F02AA6]" />
-                  {client}
-                </span>
-              ))}
+              {targetClients.map((client, idx) => {
+                const clientKey = 'target.' + client.replace(/[^a-zA-Z]/g, '').toLowerCase();
+                return (
+                  <span
+                    key={idx}
+                    className="px-4 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-[#D1008F]/50 hover:bg-[#D1008F]/5 text-slate-300 hover:text-[#FF7BC1] text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-default"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F02AA6]" />
+                    {t(clientKey)}
+                  </span>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -106,9 +112,9 @@ export default function About() {
         {/* Core Values Section */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">Our Core Values</h3>
+            <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight">{t('about.coreValuesTitle')}</h3>
             <p className="text-slate-400 text-xs sm:text-sm mt-3">
-              The fundamental principles that guide our work, our corporate relationships, and our growth.
+              {t('about.coreValuesSubtitle')}
             </p>
           </div>
 
@@ -119,23 +125,28 @@ export default function About() {
             viewport={{ once: true, margin: '-100px' }}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {CORE_VALUES.map((val) => (
-              <motion.div
-                key={val.title}
-                variants={cardVariants}
-                className="p-8 rounded-2xl glass-panel hover:border-[#D1008F]/40 transition-all duration-300 group flex flex-col items-start shimmer-border"
-              >
-                <div className="p-3.5 rounded-xl bg-[#D1008F]/10 border border-[#D1008F]/20 text-[#FF7BC1] mb-6 group-hover:bg-[#D1008F] group-hover:text-white group-hover:shadow-[0_0_15px_#D1008F] transition-all duration-300">
-                  <LucideIcon name={val.iconName} size={20} />
-                </div>
-                <h4 className="font-display font-black text-lg text-white group-hover:text-[#F02AA6] transition-colors uppercase tracking-wide">
-                  {val.title}
-                </h4>
-                <p className="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
-                  {val.description}
-                </p>
-              </motion.div>
-            ))}
+            {CORE_VALUES.map((val) => {
+              const valKey = val.title.replace(/\s+/g, '').toLowerCase();
+              const valTitleKey = `value.${valKey}.title`;
+              const valDescKey = `value.${valKey}.desc`;
+              return (
+                <motion.div
+                  key={val.title}
+                  variants={cardVariants}
+                  className="p-8 rounded-2xl glass-panel hover:border-[#D1008F]/40 transition-all duration-300 group flex flex-col items-start shimmer-border"
+                >
+                  <div className="p-3.5 rounded-xl bg-[#D1008F]/10 border border-[#D1008F]/20 text-[#FF7BC1] mb-6 group-hover:bg-[#D1008F] group-hover:text-white group-hover:shadow-[0_0_15px_#D1008F] transition-all duration-300">
+                    <LucideIcon name={val.iconName} size={20} />
+                  </div>
+                  <h4 className="font-display font-black text-lg text-white group-hover:text-[#F02AA6] transition-colors uppercase tracking-wide">
+                    {t(valTitleKey)}
+                  </h4>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-3 leading-relaxed">
+                    {t(valDescKey)}
+                  </p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
 

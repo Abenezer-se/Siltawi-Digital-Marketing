@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import LucideIcon from './LucideIcon';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,13 +19,13 @@ export default function Contact() {
 
   const validateForm = () => {
     const tempErrors: Record<string, string> = {};
-    if (!formData.name.trim()) tempErrors.name = 'Please enter your name.';
+    if (!formData.name.trim()) tempErrors.name = t('contact.errName');
     if (!formData.email.trim()) {
-      tempErrors.email = 'Please enter your email.';
+      tempErrors.email = t('contact.errEmail');
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      tempErrors.email = 'Please provide a valid email address.';
+      tempErrors.email = t('contact.errEmailValid');
     }
-    if (!formData.message.trim()) tempErrors.message = 'Please type a message.';
+    if (!formData.message.trim()) tempErrors.message = t('contact.errMessage');
     
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
@@ -64,13 +66,13 @@ export default function Contact() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-[10px] font-black text-[#FFA52F] tracking-widest uppercase font-display bg-[#FFA52F]/10 border border-[#FFA52F]/35 px-4 py-2 rounded-full inline-block">
-            Get In Touch
+            {t('contact.getInTouch')}
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight animate-pulse-slow">
-            Let's Scale Your Business
+            {t('contact.scaleTitle')}
           </h2>
           <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Contact our office in Addis Ababa today. Have questions or ready to launch a project? Drop us a prompt line below!
+            {t('contact.desc')}
           </p>
         </div>
 
@@ -79,10 +81,10 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
               <h3 className="font-display font-black text-2xl text-white tracking-tight uppercase">
-                Contact Information
+                {t('contact.infoTitle')}
               </h3>
               <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light">
-                Connect directly with our division managers. We typically respond to new business inquiries within 12-24 business hours. Let's make something amazing.
+                {t('contact.infoDesc')}
               </p>
 
               {/* Contact Icons lists */}
@@ -92,7 +94,7 @@ export default function Contact() {
                     <LucideIcon name="Mail" size={16} />
                   </div>
                   <div>
-                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Email Us</p>
+                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{t('contact.emailUs')}</p>
                     <a href="mailto:info@siltawi.com" className="text-xs sm:text-sm font-bold text-white hover:text-[#FF7BC1] transition-colors">
                       info@siltawi.com
                     </a>
@@ -104,7 +106,7 @@ export default function Contact() {
                     <LucideIcon name="Phone" size={16} />
                   </div>
                   <div>
-                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Call Our Office</p>
+                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{t('contact.callOffice')}</p>
                     <a href="tel:+251900000000" className="text-xs sm:text-sm font-bold text-white hover:text-[#FF7BC1] transition-colors">
                       +251 900 000 000
                     </a>
@@ -116,7 +118,7 @@ export default function Contact() {
                     <LucideIcon name="MapPin" size={16} />
                   </div>
                   <div>
-                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Location</p>
+                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{t('contact.location')}</p>
                     <p className="text-xs sm:text-sm font-bold text-white">
                       Addis Ababa, Ethiopia
                     </p>
@@ -125,7 +127,7 @@ export default function Contact() {
 
                 {/* Social media connections directly inside Contact Column */}
                 <div className="pt-5 border-t border-white/[0.06] space-y-3">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Connect Online</p>
+                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{t('contact.connectOnline')}</p>
                   <div className="flex items-center gap-2.5">
                     <a
                       href="https://t.me/siltawi"
@@ -204,14 +206,14 @@ export default function Contact() {
                   className="space-y-5"
                 >
                   <h4 className="font-display font-black text-xl text-white tracking-tight uppercase mb-2">
-                    Send Us a Message
+                    {t('contact.sendTitle')}
                   </h4>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     {/* Name input */}
                     <div className="space-y-1.5 flex flex-col">
                       <label htmlFor="name" className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                        Full Name *
+                        {t('contact.fullName')}
                       </label>
                       <input
                         id="name"
@@ -219,7 +221,7 @@ export default function Contact() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your Name"
+                        placeholder={t('contact.fullNamePlaceholder')}
                         className={`px-4 py-3 rounded-xl bg-white/[0.02] border text-xs sm:text-sm font-semibold text-white focus:outline-none focus:ring-1 focus:ring-[#D1008F] focus:border-[#D1008F] transition-all duration-350 ${
                           errors.name ? 'border-[#D1008F]/70 bg-[#D1008F]/5' : 'border-white/[0.08]'
                         }`}
@@ -232,7 +234,7 @@ export default function Contact() {
                     {/* Email input */}
                     <div className="space-y-1.5 flex flex-col">
                       <label htmlFor="email" className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                        Email Address *
+                        {t('contact.emailAddress')}
                       </label>
                       <input
                         id="email"
@@ -240,7 +242,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="you@company.com"
+                        placeholder={t('contact.emailPlaceholder')}
                         className={`px-4 py-3 rounded-xl bg-white/[0.02] border text-xs sm:text-sm font-semibold text-white focus:outline-none focus:ring-1 focus:ring-[#D1008F] focus:border-[#D1008F] transition-all duration-350 ${
                           errors.email ? 'border-[#D1008F]/70 bg-[#D1008F]/5' : 'border-white/[0.08]'
                         }`}
@@ -255,7 +257,7 @@ export default function Contact() {
                     {/* Phone input */}
                     <div className="space-y-1.5 flex flex-col">
                       <label htmlFor="phone" className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                        Phone (Optional)
+                        {t('contact.phone')}
                       </label>
                       <input
                         id="phone"
@@ -263,7 +265,7 @@ export default function Contact() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+251 900 000 050"
+                        placeholder={t('contact.phonePlaceholder')}
                         className="px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.08] text-xs sm:text-sm font-semibold text-white focus:outline-none focus:ring-1 focus:ring-[#D1008F] focus:border-[#D1008F] transition-all duration-350"
                       />
                     </div>
@@ -271,7 +273,7 @@ export default function Contact() {
                     {/* Interest Dropdown */}
                     <div className="space-y-1.5 flex flex-col">
                       <label htmlFor="interest" className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                        Area of Interest
+                        {t('contact.interest')}
                       </label>
                       <select
                         id="interest"
@@ -280,11 +282,11 @@ export default function Contact() {
                         onChange={handleChange}
                         className="px-4 py-3 rounded-xl bg-slate-950 border border-white/[0.08] text-xs sm:text-sm font-semibold text-white focus:outline-none focus:ring-1 focus:ring-[#D1008F] focus:border-[#D1008F] transition-all duration-350"
                       >
-                        <option value="Website Development">Website Development</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
-                        <option value="Branding & Design">Branding & Design</option>
-                        <option value="Content Creation">Content Creation</option>
-                        <option value="SEO Services">SEO Services</option>
+                        <option value="Website Development">{t('service.website-development.title')}</option>
+                        <option value="Digital Marketing">{t('service.digital-marketing.title')}</option>
+                        <option value="Branding & Design">{t('service.branding-design.title')}</option>
+                        <option value="Content Creation">{t('service.content-creation.title')}</option>
+                        <option value="SEO Services">{t('service.seo-services.title')}</option>
                       </select>
                     </div>
                   </div>
@@ -292,7 +294,7 @@ export default function Contact() {
                   {/* Message body input */}
                   <div className="space-y-1.5 flex flex-col">
                     <label htmlFor="message" className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
-                      Your Message *
+                      {t('contact.message')}
                     </label>
                     <textarea
                       id="message"
@@ -300,7 +302,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your project or company goal..."
+                      placeholder={t('contact.messagePlaceholder')}
                       className={`px-4 py-3 rounded-xl bg-white/[0.02] border text-xs sm:text-sm font-semibold text-white focus:outline-none focus:ring-1 focus:ring-[#D1008F] focus:border-[#D1008F] transition-all duration-350 resize-none ${
                         errors.message ? 'border-[#D1008F]/70 bg-[#D1008F]/5' : 'border-white/[0.08]'
                       }`}
@@ -320,11 +322,11 @@ export default function Contact() {
                       {isSubmitting ? (
                         <>
                           <span className="w-5 h-5 rounded-full border-2 border-white/20 border-t-white animate-spin" />
-                          Sending Message...
+                          {t('contact.sending')}
                         </>
                       ) : (
                         <>
-                          Submit Brief
+                          {t('contact.submit')}
                           <LucideIcon name="ArrowRight" size={13} />
                         </>
                       )}
@@ -343,17 +345,17 @@ export default function Contact() {
                     <LucideIcon name="CheckCircle" size={32} />
                   </div>
                   <h3 className="font-display font-black text-xl sm:text-2xl text-white leading-tight uppercase">
-                    Thank You! Message Received
+                    {t('contact.successTitle')}
                   </h3>
                   <p className="text-slate-300 text-xs sm:text-sm max-w-sm leading-relaxed font-light">
-                    Our digital agency consulting crew based in Addis Ababa has received your prompt message. We will review it and follow up within 12-24 business hours.
+                    {t('contact.successDesc')}
                   </p>
 
                   <button
                     onClick={() => setSubmitSuccess(false)}
                     className="mt-6 px-6 py-3 bg-gradient-to-r from-[#D1008F] to-[#F02AA6] text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:shadow-lg transition-all cursor-pointer focus:outline-none"
                   >
-                    Send Another Message
+                    {t('contact.sendAnother')}
                   </button>
                 </motion.div>
               )}

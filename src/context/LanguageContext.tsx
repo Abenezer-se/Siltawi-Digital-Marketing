@@ -224,7 +224,35 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Contact
     'contact.title': 'Get In Touch',
-    'contact.subtitle': 'Let\'s talk about your project and custom scaling requirements.'
+    'contact.subtitle': 'Let\'s talk about your project and custom scaling requirements.',
+    'contact.getInTouch': 'Get In Touch',
+    'contact.scaleTitle': "Let's Scale Your Business",
+    'contact.desc': 'Contact our office in Addis Ababa today. Have questions or ready to launch a project? Drop us a prompt line below!',
+    'contact.infoTitle': 'Contact Information',
+    'contact.infoDesc': "Connect directly with our division managers. We typically respond to new business inquiries within 12-24 business hours. Let's make something amazing.",
+    'contact.emailUs': 'Email Us',
+    'contact.callOffice': 'Call Our Office',
+    'contact.location': 'Location',
+    'contact.connectOnline': 'Connect Online',
+    'contact.sendTitle': 'Send Us a Message',
+    'contact.fullName': 'Full Name *',
+    'contact.fullNamePlaceholder': 'Your Name',
+    'contact.emailAddress': 'Email Address *',
+    'contact.emailPlaceholder': 'you@company.com',
+    'contact.phone': 'Phone (Optional)',
+    'contact.phonePlaceholder': '+251 900 000 050',
+    'contact.interest': 'Area of Interest',
+    'contact.message': 'Your Message *',
+    'contact.messagePlaceholder': 'Tell us about your project or company goal...',
+    'contact.sending': 'Sending Message...',
+    'contact.submit': 'Submit Brief',
+    'contact.errName': 'Please enter your name.',
+    'contact.errEmail': 'Please enter your email.',
+    'contact.errEmailValid': 'Please provide a valid email address.',
+    'contact.errMessage': 'Please type a message.',
+    'contact.successTitle': 'Thank You! Message Received',
+    'contact.successDesc': 'Our digital agency consulting crew based in Addis Ababa has received your prompt message. We will review it and follow up within 12-24 business hours.',
+    'contact.sendAnother': 'Send Another Message'
   },
   am: {
     // Nav & Footer
@@ -439,7 +467,35 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Contact
     'contact.title': 'ያግኙን',
-    'contact.subtitle': 'ስለ ፕሮጀክትዎ እና ስለ ድርጅትዎ እድገት በጋራ እንወያይ።'
+    'contact.subtitle': 'ስለ ፕሮጀክትዎ እና ስለ ድርጅትዎ እድገት በጋራ እንወያይ።',
+    'contact.getInTouch': 'ያግኙን',
+    'contact.scaleTitle': 'ድርጅትዎን በጋራ እናሳድገው',
+    'contact.desc': 'ዛሬውኑ በአዲስ አበባ የሚገኘውን ቢሯችንን ያነጋግሩ። ጥያቄዎች ካሉዎት ወይም ፕሮጀክት ለመጀመር ከተዘጋጁ ከታች ባለው ቅጽ መልዕክት ይላኩልን!',
+    'contact.infoTitle': 'የእውቂያ መረጃ',
+    'contact.infoDesc': 'ከስራ አስኪያጆቻችን ጋር በቀጥታ ይገናኙ። ለንግድ ጥያቄዎች አብዛኛውን ጊዜ ከ12-24 የስራ ሰዓታት ውስጥ ምላሽ እንሰጣለን። አብረን አስደናቂ ስራ እንስራ።',
+    'contact.emailUs': 'ኢሜል ይላኩልን',
+    'contact.callOffice': 'ቢሯችንን ይደውሉ',
+    'contact.location': 'አድራሻ',
+    'contact.connectOnline': 'የማህበራዊ ሚዲያ ትስስር',
+    'contact.sendTitle': 'መልዕክት ይላኩልን',
+    'contact.fullName': 'ሙሉ ስም *',
+    'contact.fullNamePlaceholder': 'የእርስዎ ስም',
+    'contact.emailAddress': 'የኢሜል አድራሻ *',
+    'contact.emailPlaceholder': 'you@company.com',
+    'contact.phone': 'ስልክ (አማራጭ)',
+    'contact.phonePlaceholder': '+251 900 000 050',
+    'contact.interest': 'የሚፈልጉት የሙያ ዘርፍ',
+    'contact.message': 'መልዕክትዎ *',
+    'contact.messagePlaceholder': 'ስለ ፕሮጀክትዎ ወይም ስለ ድርጅትዎ አላማ ይንገሩን...',
+    'contact.sending': 'በመላክ ላይ...',
+    'contact.submit': 'መልዕክቱን ላክ',
+    'contact.errName': 'እባክዎን ስምዎን ያስገቡ።',
+    'contact.errEmail': 'እባክዎን የኢሜል አድራሻዎን ያስገቡ።',
+    'contact.errEmailValid': 'እባክዎን ትክክለኛ የኢሜል አድራሻ ያስገቡ።',
+    'contact.errMessage': 'እባክዎን መልዕክትዎን ይጻፉ።',
+    'contact.successTitle': 'እናመሰግናለን! መልዕክትዎ ደርሶናል',
+    'contact.successDesc': 'በአዲስ አበባ የሚገኘው የዲጂታል ኤጀንሲ የማማከር ቡድናችን መልዕክትዎን ተቀብሏል። በጥንቃቄ ተመልክተን ከ12-24 ባሉ የስራ ሰዓታት ውስጥ እናገኝዎታለን።',
+    'contact.sendAnother': 'ሌላ መልዕክት ይላኩ'
   }
 };
 

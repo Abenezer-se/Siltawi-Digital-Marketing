@@ -131,7 +131,7 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           </nav>
 
           {/* Mobile menu and indicator */}
-          <div className="flex items-center lg:hidden gap-3">
+          <div className="flex items-center lg:hidden gap-2">
             {/* Language Switcher in mobile header right beside menu toggle */}
             <button
               onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}

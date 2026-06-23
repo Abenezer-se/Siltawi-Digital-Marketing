@@ -52,35 +52,15 @@ export default function Navbar({ activeSection, onNavigate }: NavbarProps) {
           {/* Futuristic Logo container */}
           <button
             onClick={() => handleItemClick('home')}
-            className="flex items-center gap-3.5 group focus:outline-none text-left"
+            className="flex items-center group focus:outline-none text-left"
             aria-label="Siltawi Home"
           >
-            <div className="relative h-11 w-11 shrink-0 overflow-hidden flex items-center justify-center rounded-xl bg-slate-950 p-1.5 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(240,42,166,0.4)] border border-[#D1008F]/25">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#D1008F]/10 via-transparent to-[#F5D400]/5" />
-              <img
-                src="https://workshop.siltawi.com/siltawi_logo_normal_eng_v2.svg"
-                alt="Siltawi Digital Marketing Logo"
-                className="h-full w-auto object-contain brightness-110 contrast-110"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                  const fallback = document.getElementById('logo-fallback');
-                  if (fallback) fallback.classList.remove('hidden');
-                }}
-              />
-              <div id="logo-fallback" className="hidden font-display font-extrabold text-xs text-white">
-                SLTW
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-start leading-none">
-              <span className="font-display font-black text-lg tracking-tight text-white group-hover:text-[#F02AA6] transition-colors">
-                Siltawi
-              </span>
-              <span className="text-[9px] uppercase tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#D1008F] to-[#FFA52F] font-bold font-display mt-0.5">
-                {language === 'am' ? 'ዲጂታል ማርኬቲንግ' : 'Digital Marketing'}
-              </span>
-            </div>
+            <img
+              src="https://workshop.siltawi.com/siltawi_logo_normal_eng_v2.svg"
+              alt="Siltawi Digital Marketing Logo"
+              className="h-10 sm:h-12 w-auto object-contain brightness-110 contrast-110 transition-transform duration-300 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
           </button>
 
           {/* Desktop futuristic links */}

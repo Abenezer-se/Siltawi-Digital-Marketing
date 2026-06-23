@@ -155,13 +155,13 @@ export default function ThreeDLogo() {
           </div>
 
           {/* Center Logo Canvas */}
-          <div className="relative flex-1 flex items-center justify-center p-4">
-            <div className="absolute w-16 h-16 bg-[#D1008F]/10 rounded-full blur-md" />
+          <div className="relative flex-1 flex items-center justify-center p-4 w-full">
+            <div className="absolute w-24 h-12 bg-[#D1008F]/15 rounded-full blur-md" />
             
             <img
               src="https://workshop.siltawi.com/siltawi_logo_normal_eng_v2.svg"
               alt="Siltawi Logo"
-              className="w-14 h-14 object-contain brightness-125 contrast-125 relative z-10 filter drop-shadow-[0_0_10px_rgba(209,0,143,0.6)]"
+              className="w-32 h-14 object-contain brightness-125 contrast-125 relative z-10 filter drop-shadow-[0_0_10px_rgba(209,0,143,0.6)]"
               referrerPolicy="no-referrer"
             />
           </div>

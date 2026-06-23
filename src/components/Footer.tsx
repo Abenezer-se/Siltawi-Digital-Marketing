@@ -39,20 +39,14 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="lg:col-span-4 flex flex-col items-start space-y-5">
             <button
               onClick={() => onNavigate('home')}
-              className="flex items-center gap-3.5 group text-left focus:outline-none"
+              className="flex items-center group text-left focus:outline-none"
             >
-              <div className="relative h-10 w-10 p-1 bg-slate-950 rounded-lg flex items-center justify-center border border-[#D1008F]/30 shadow-[0_0_8px_rgba(209,0,143,0.30)]">
-                <img
-                  src="https://workshop.siltawi.com/siltawi_logo_normal_eng_v2.svg"
-                  alt="Siltawi logo"
-                  className="h-full w-auto object-contain brightness-110"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="flex flex-col leading-none text-white">
-                <span className="font-display font-black text-base tracking-tight">Siltawi</span>
-                <span className="text-[9px] font-black tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-[#D1008F] to-[#FFA52F] font-display mt-0.5">DIGITAL MARKETING</span>
-              </div>
+              <img
+                src="https://workshop.siltawi.com/siltawi_logo_normal_eng_v2.svg"
+                alt="Siltawi Digital Marketing Logo"
+                className="h-9 sm:h-11 w-auto object-contain brightness-110 transition-transform duration-300 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
             </button>
             
             <p className="text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
